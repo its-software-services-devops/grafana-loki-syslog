@@ -11,5 +11,5 @@ git clone https://github.com/grafana/loki.git
 cd loki/production/loki-mixin
 cp ${WORKDIR}/${JSONNET_FILE} .
 jb install
-jsonnet -J vendor ${JSONNET_FILE} -m ${WORKDIR}/dashboard/generals
+jsonnet -J vendor ${JSONNET_FILE} -m ${WORKDIR}/dashboards/generals
 cd ${WORKDIR}
