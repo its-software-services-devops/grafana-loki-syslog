@@ -59,10 +59,10 @@ jobs:
     - id: setup-jsonnet
       uses: zendesk/setup-jsonnet@v1
 
-    - name: Moving build to artifacts directory
+    - name: Run Mixins
       run: |
-      chmod +x run-mixmins.bash
-      ./run-mixins.bash
+        chmod +x run-mixmins.bash
+        ./run-mixins.bash
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
