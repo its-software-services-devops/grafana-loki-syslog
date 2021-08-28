@@ -6,4 +6,3 @@ echo "$HOME/go/bin" >> "$GITHUB_PATH"
 jb
 jsonnet
 git
-./jb
