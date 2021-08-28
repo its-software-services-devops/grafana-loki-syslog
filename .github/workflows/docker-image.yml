@@ -57,7 +57,7 @@ jobs:
         message: "Start building [grafana-loki-syslog] [${{ steps.prep.outputs.version }}]..."
 
     - id: setup-jsonnet
-      uses: zendesk/setup-jsonnet@v1
+      uses: zendesk/setup-jsonnet@v7
 
     - name: Run Mixins
       run: |
