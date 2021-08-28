@@ -6,7 +6,7 @@ echo "$HOME/go/bin" >> "$GITHUB_PATH"
 WORKDIR=$(pwd)
 
 # === Loki Dashboards ===
-JSONNET_FILE=loki-dashboard.jsonnet
+JSONNET_FILE=loki-dashboards.jsonnet
 git clone https://github.com/grafana/loki.git
 cd loki/production/loki-mixin
 cp ${WORKDIR}/${JSONNET_FILE} .
