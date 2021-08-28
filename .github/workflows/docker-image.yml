@@ -56,6 +56,14 @@ jobs:
         access_token: ${{ secrets.LINE_ACCESS_TOKEN }}
         message: "Start building [grafana-loki-syslog] [${{ steps.prep.outputs.version }}]..."
 
+    - id: setup-jsonnet
+      uses: zendesk/setup-jsonnet@v7
+
+    - name: Run Mixins
+      run: |
+        chmod +x run-mixins.bash
+        ./run-mixins.bash
+
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
     
