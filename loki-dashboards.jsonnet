@@ -1,4 +1,5 @@
 local utils = import 'mixin-utils/utils.libsonnet';
+local fields = ["loki-chunks.json", "loki-operational.json", "loki-reads.json", "loki-writes.json"];
 local dashboards = (import 'mixin.libsonnet').grafanaDashboards {
     'loki-operational.json'+: {
         showMultiCluster:: false,
@@ -49,5 +50,5 @@ local dashboards = (import 'mixin.libsonnet').grafanaDashboards {
     };
 
     [name]: dashboards[name]
-    for name in std.objectFields(fields)
+    for name in fields
 }
