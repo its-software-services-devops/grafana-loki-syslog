@@ -27,3 +27,7 @@ cp strimzi-kafka-exporter.json ${WORKDIR}/dashboards/generals
 cp strimzi-kafka.json ${WORKDIR}/dashboards/generals
 cp strimzi-operators.json ${WORKDIR}/dashboards/generals
 cp strimzi-zookeeper.json ${WORKDIR}/dashboards/generals
+
+
+# === Verification ===
+ls -lrt ${WORKDIR}/dashboards/generals
