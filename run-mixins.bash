@@ -30,4 +30,5 @@ cp strimzi-zookeeper.json ${WORKDIR}/dashboards/generals
 
 
 # === Verification ===
+rm ${WORKDIR}/dashboards/generals/dummy.txt
 ls -lrt ${WORKDIR}/dashboards/generals
