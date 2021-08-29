@@ -13,3 +13,9 @@ cp ${WORKDIR}/${JSONNET_FILE} .
 jb install
 jsonnet -J vendor ${JSONNET_FILE} -m ${WORKDIR}/dashboards/generals
 cd ${WORKDIR}
+
+# === Cert Manager ===
+JSONNET_FILE=lib/dashboards.jsonnet
+git clone https://gitlab.com/uneeq-oss/cert-manager-mixin.git
+cd cert-manager-mixin
+jsonnet ${JSONNET_FILE} -m ${WORKDIR}/dashboards/generals
