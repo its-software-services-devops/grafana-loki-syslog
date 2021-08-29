@@ -4,7 +4,7 @@ go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
 echo "$HOME/go/bin" >> "$GITHUB_PATH"
 
 WORKDIR=$(pwd)
-DASHBOARDs_DIR=${WORKDIR}/dashboards/generals
+DASHBOARDS_DIR=${WORKDIR}/dashboards/generals
 
 # === Loki Dashboards ===
 JSONNET_FILE=loki-dashboards.jsonnet
@@ -26,13 +26,15 @@ git clone https://github.com/strimzi/strimzi-kafka-operator.git
 cd strimzi-kafka-operator/examples/metrics/grafana-dashboards
 
 SED_PATTERN='s#${DS_PROMETHEUS}#Prometheus-Platform#g'
+SED_FONTSIZE_PATTERN='s#200%#50%#g'
 
-export FILE=strimzi-kafka-exporter.json; sed -i ${SED_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDs_DIR}
-export FILE=strimzi-kafka.json; sed -i ${SED_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDs_DIR}
-export FILE=strimzi-operators.json; sed -i ${SED_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDs_DIR}
-export FILE=strimzi-zookeeper.json; sed -i ${SED_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDs_DIR}
+export FILE=strimzi-kafka-exporter.json; sed -i ${SED_PATTERN} ${FILE};
+export FILE=strimzi-kafka-exporter.json; sed -i ${SED_FONTSIZE_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDS_DIR}
 
-sed -i "s#\$\{DS_PROMETHEUS\}#Prometheus-Platform#g" 
+export FILE=strimzi-kafka.json; sed -i ${SED_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDS_DIR}
+export FILE=strimzi-operators.json; sed -i ${SED_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDS_DIR}
+export FILE=strimzi-zookeeper.json; sed -i ${SED_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDS_DIR}
+
 # === Verification ===
 rm ${WORKDIR}/dashboards/generals/dummy.txt
 ls -lrt ${WORKDIR}/dashboards/generals
