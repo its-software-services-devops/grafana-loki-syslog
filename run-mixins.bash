@@ -36,7 +36,7 @@ cd ${WORKDIR}
 
 # === MinIO Object Storage ===
 curl -LO https://raw.githubusercontent.com/minio/minio/master/docs/metrics/prometheus/grafana/minio-overview.json
-export FILE=minio-overview.json; sed -i ${SED_PATTERN} ${FILE};
+export FILE=minio-overview.json; sed -i ${SED_PATTERN} ${FILE}; cp ${FILE} ${DASHBOARDS_DIR}
 cd ${WORKDIR}
 
 # === Verification ===
